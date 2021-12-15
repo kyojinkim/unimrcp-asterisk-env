@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
 
-TAG="0.1"
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+TAG=$(echo $BRANCH | cut -d/ -f2)
 CACHE_OPTION= #"--no-cache"
 IMAGE_NAME="unimrcp-asterisk"
 CONTAINER_NAME="unimrcp-asterisk-container-${RANDOM}"
